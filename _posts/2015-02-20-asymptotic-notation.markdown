@@ -1,3 +1,9 @@
+---
+layout: main
+title: Asymptotic notation
+---
+
+
 # Asymptotic notation
 
 **Asymptotic notation** is a useful way of expressing how quickly an algorithm will run on an input of any size.
