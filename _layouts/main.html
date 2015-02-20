@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en-GB'>
+  <head>
+    <meta charset='utf-8'>
+    <title>{{ page.title }}</title>
+    <link href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='/media/css/base.css' rel='stylesheet'>
+  </head>
+
+  <body>
+    <div class='container'>
+      <header class='clearfix'>
+        <div class='links btn-group pull-right'>
+          <a class='btn btn-default' href='https://github.com/adam-incuna'>
+            GitHub
+          </a>
+          <a class='btn btn-default' href='mailto:adam@incuna.com'>
+            Email
+          </a>
+        </div>
+        <h1 id='logo'><a href='/'>Adam Thomas</a></h1>
+      </header>
+      <nav>
+        <ul class='nav nav-tabs nav-justified'>
+          <li class='{% if page.bodyid == "index" %}active{% endif %}'>
+            <a href='/'>Index</a>
+          </li>
+        <ul>
+      </nav>
+      <article>
+        {{ content }}
+      </article>
+      <footer>
+          <hr/>
+          <p class='text-muted'>&copy; Adam Thomas</p>
+      </footer>
+    </div>
+  </body>
+</html>

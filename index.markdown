@@ -1,6 +1,6 @@
 ---
 layout: main
-bodyid: me
+bodyid: index
 title: Adam Thomas
 ---
 
