@@ -50,6 +50,7 @@ Let's call our expression `E` so we don't have to worry about what it is.  `E` i
 #### The all-important syntactic definition!
 
 To say that a piece of code is `O(E)` means that:
+
 - As long as `n` is at least a certain, constant size,
 - the code takes no more than `kE(n)` iterations to run.
 
@@ -60,6 +61,7 @@ To say that a piece of code is `O(E)` means that:
 The "as long as n is at least a certain size" bit is important.  Most sections of code will have at least some overhead that doesn't scale with the size of the input - housekeeping before and after the loop, initialising data structures, whatever.  This rule allows us to handwave that away and focus on the important characteristics of the program.  As a result, we can ignore anything other than the biggest `n` term in our expression.  This will usually be the one with the highest exponent.
 
 Both of these neat shortcuts, taken together, mean that `O()` expressions simplify down to a very minimal form:
+
 - `O(n+1)` is just `O(n)`.
 - `O(n-1)` is also just `O(n)`.
 - `O(n^2 + 3n + 8)` is just `O(n^2)`, because if `n` is big enough, `n^2` will become massive compared to just `3n`.
@@ -104,7 +106,7 @@ These are worth watching out for.  If you run a loop that checks whether an elem
 
 Suppose we have some bad performance on a Python method that returns a list of yet-unused user ID codes.  We have a store of pregenerated 12-digit codes that can be sent out to users, and we can compile the list of used codes pretty easily by looking at the users themselves.  The method performs badly in tests, so it's not just the database queries required to fetch the data that are causing problems.
 
-```
+```python
 def get_unused_codes(all_codes, users):
     user_codes = [user.code for user in users]
     return [code for code in all_codes if code not in user_codes]
@@ -112,7 +114,7 @@ def get_unused_codes(all_codes, users):
 
 This is typical-looking Python, using list comprehensions to do iteration.  To get a better angle on where the performance hit is, let's expand them out into for loops.
 
-```
+```python
 def get_unused_codes(all_codes, users):
     user_codes = []
     for user in users:
@@ -142,7 +144,7 @@ However, if we did have a sorted list of user codes - which Python can do for us
 
 Python doesn't provide a native binary search function, but writing one or adapting a library function like [`bisect.bisect_left`](http://stackoverflow.com/questions/212358/binary-search-in-python) shouldn't be too difficult. With that in hand, we can make the change fairly easily.
 
-```
+```python
 def get_unused_codes(all_codes, users):
     user_codes = [user.code for user in users].sort
 
@@ -154,7 +156,7 @@ def get_unused_codes(all_codes, users):
 
 or, more compactly
 
-```
+```python
 def get_unused_codes(all_codes, users):
     user_codes = [user.code for user in users].sorted()
     return [code in all_codes if not binary_search_in(code, user_codes)]
@@ -172,6 +174,7 @@ It doesn't look like much, but that is a big improvement.  For our 1000-item lon
 ### TL;DR
 
 To say that a piece of code is `O(E)` means that:
+
 - As long as `n` is at least a certain, constant size,
 - the code takes no more than `kE(n)` iterations to run.
 
