@@ -120,7 +120,7 @@ def get_unused_codes(all_codes, users):
 
     result = []
     for code in all_codes:
-        if code in user_codes:
+        if code not in user_codes:
             result += [code]
 ```
 
