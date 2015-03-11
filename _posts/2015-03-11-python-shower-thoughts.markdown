@@ -5,7 +5,7 @@ title: Python Shower Thoughts
 
 # Python Shower Thoughts
 
-#### I use unit tests as a compiler
+### I use unit tests as a compiler
 
 Whenever I change my Python code, even really slightly (like modifying a string literal or removing an unused import), I re-run the test suite before committing.  Isn't that sort of weird?
 
@@ -18,7 +18,7 @@ SublimeText plugins and the various available linters can only go so far in catc
 In C++ land, and everywhere else, that's called a compiler.
 
 
-#### Are pointers genuinely that scary?
+### Are pointers genuinely that scary?
 
 "Everything in Python is a dictionary."
 
@@ -37,7 +37,7 @@ Realising that Python represents absolutely everything via a pointer explains a 
 I never found pointers hard, myself.  They're certainly less complicated when you're using them explicitly than Python's metaprogramming systems are, and knowing about them and how they link into Python has considerably boosted my understanding of Python.  The tutorial that explained everything to me was [this one, from the excellent cplusplus.com](http://www.cplusplus.com/doc/tutorial/pointers/), and I hope it helps somebody else in the same way!  It's obviously written using C++ syntax, but I don't think there's anything grossly complicated in there.  (The first few sections are the most relevant ones, and the later bits are more in-depth and C++-specific.)
 
 
-#### A test isn't a real spec
+### A test isn't a real spec
 
 Test-driven development, or TDD, is fairly popular.  The idea, for those unfamiliar, is that you write the unit tests for a particular piece of code _before_ the code itself, and write your code to make the tests pass.  You can break it down into smaller steps by writing a test that describes only a little piece of the functionality you want, making that pass, extending it, making that pass, and so on.  It works well because it forces you to explicitly specify to yourself what you're doing, similarly to writing a bunch of comments before you start programming.  I don't use it much myself because my brain prefers to try stuff and see where it goes rather than make all of the decisions up-front, but I know people who really like it and I've used it enough to assert its effectiveness.  So far so good.
 
