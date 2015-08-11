@@ -57,7 +57,7 @@ comments_discussion_id=discussion.pk
 > object" - intuitively, "this user has posted to this discussion"
 ```
 
-### How does `filter` work?
+## How does `filter` work?
 
 When a `QuerySet` is evaluated, such as when you try to list its contents, Django creates an SQL query and ships that off to the underlying database. The database runs the query and outputs the result, which will usually be a table of objects of a certain type. Django turns that into a list of the Python-friendly models we know and love (such as `User` in the example above) and we can perform operations on them.
 
@@ -121,7 +121,7 @@ id  name
 ```
 
 
-### To `distinct()` or not to `distinct()`?
+## To `distinct()` or not to `distinct()`?
 
 It seems that the cause of our unwanted duplicate results is having duplicates in the `JOIN`ed tables, which in turn is caused by the existence of multiple ways to get from the queryset you're filtering to the related object that's being conditioned on.
 
@@ -157,7 +157,7 @@ On the other hand, if you're querying all the comments in the first discussion:
 The `INNER JOIN` produces two rows, as with the `User` queries, but the model whose queryset you're filtering - `Comment` - has two distinct values in those rows. There's no need for a `distinct()`, because there's only one way of getting from either `Comment` to that particular discussion.
 
 
-### More examples
+## More examples
 
 For more worked examples, let's look at some real code. This is a (trimmed) snippet from `managers.py` in `incuna-groups`:
 
@@ -214,7 +214,7 @@ Ah, here it gets more awkward. This time we're checking that a `User` has posted
 We know that `self.comments()` doesn't generate duplicates, as we've already examined that method. However, `comments__in=self.comments()` can definitely be satisfied in multiple ways for a single `User`. Since a `User` could have any number of comments, we can deduce that it could have any number of comments _in the queryset returned by `self.comments()`_. This means the `INNER JOIN` table can contain multiple rows for the same `User`, and that in turn means that the filter can produce duplicate `User` entries in the resulting queryset. This means we need a `distinct()`.
 
 
-### Testing distinctness
+## Testing distinctness
 
 We can also use this knowledge to write tests. Verifying that your returned queryset doesn't contain duplicate entries is a good idea, just in case somebody accidentally removes the `distinct()`.
 
@@ -232,7 +232,7 @@ def test_users_distinct(self):
 This test passes with the `distinct()` in place, and fails without.
 
 
-### TL;DR
+## TL;DR
 
 * SQL is complicated.
 * A `filter(...)` on a queryset can produce duplicate results if there are multiple ways for the same item (in the queryset being filtered) to satisfy its conditions.
