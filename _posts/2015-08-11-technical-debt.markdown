@@ -3,7 +3,7 @@ layout: main
 title: Technical debt
 ---
 
-# So you own a house
+# Technical debt: So you own a house
 
 Suppose you own (or rent) a house, and you live in it, as people with houses are wont to do. Your possessions take up space, but you have shelves and drawers to put everything in.
 
@@ -15,4 +15,4 @@ Surely, it's doable, though. I mean, you recognise fully well that this is not t
 
 Also, where do you even start? You have to move stuff off the shelves to put it back on, and there's nowhere for it all to really go. You'd have to pull everything off at once and re-layout the entire house in one go. Possibly even knock through the wall between the kitchen and dining room to make for a bit more space. Yes, that'd make things a lot easier, even if it is expensive and impractical and time-consuming...
 
-You know what? Screw it. You'll just make sure to do it properly next time you move house.
+You know what? Screw it. You'll just make sure to do it properly next time you move.
