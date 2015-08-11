@@ -4,7 +4,7 @@ title: Filters, inner joins, distinct(), and you
 ---
 
 
-### Filtering a QuerySet can increase its size
+# Filtering a QuerySet can increase its size
 
 ```
 # Create our user, John Doe
