@@ -5,6 +5,6 @@ title: Adam Thomas
 ---
 
 {% for post in site.posts %}
-  <div><a href='{{ post.url }}'>{{ post.title }}</a></div>
+  <h2><a href='{{ post.url }}'>{{ post.title }}</a></h2>
   {% if forloop.last == false %}<hr>{% endif %}
 {% endfor %}

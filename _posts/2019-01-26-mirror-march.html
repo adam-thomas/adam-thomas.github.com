@@ -12,6 +12,13 @@
             document.getElementById("result").innerText = "Working...";
 
             var numTriggers = document.getElementById("num-triggers").value;
+
+            // Sanity check so as not to kill any PCs
+            if (numTriggers >= 1e8) {
+                alert("This is likely a large enough number to crash your computer. Calculating 99,999,999 triggers instead.")
+                numTriggers = 99999999;
+            }
+
             var totalHeads = 0;
 
             while (numTriggers > 0) {
