@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang='en-GB'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Mirror March calculator</title>
+    <link href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='/media/css/base.css' rel='stylesheet'>
+
+    <script type="text/javascript">
+
+        function calculate() {
+            document.getElementById("result").innerText = "Working...";
+
+            var numTriggers = document.getElementById("num-triggers").value;
+            var totalHeads = 0;
+
+            while (numTriggers > 0) {
+                for (var i = 0; i < numTriggers; i++) {
+                    // This will be either 0 or 1.
+                    // Math.random() returns a random float between 0 and 1 (inclusive of 0).
+                    // We double the result, then truncate to an integer to get either 0 or 1.
+                    var flip = Math.floor(Math.random() * 2);
+
+                    // Let's treat 1 as heads.
+                    totalHeads = totalHeads + flip;
+
+                    // Successful flips effectively leave another trigger to be resolved;
+                    // unsuccessful flips don't.
+                    numTriggers = numTriggers - (1 - flip);
+                }
+            }
+
+            document.getElementById("result").innerText = totalHeads;
+        }
+
+    </script>
+  </head>
+
+  <body>
+    <div class='container'>
+      <article>
+        <h1 id="mirror-march">Mirror March Calculator</h1>
+
+        <p>How many triggers has the player generated?</p>
+        <input id="num-triggers" type="number" />
+        <button id="submit" onClick="calculate();">Go</button>
+        <p id="result-display">Number of creatures: <span id="result"></span></p>
+      </article>
+      <footer>
+          <hr/>
+          <p class='text-muted'>&copy; Adam Thomas</p>
+      </footer>
+    </div>
+  </body>
+</html>
