@@ -150,7 +150,7 @@ def get_unused_codes(all_codes, users):
 
     result = []
     for code in all_codes:
-        if binary_search_in(code, user_codes):
+        if not binary_search_in(code, user_codes):
             result += [code]
 ```
 
